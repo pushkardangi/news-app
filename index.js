@@ -3,15 +3,20 @@ let countries = "in";
 let languages = "en";
 let limit = 12;
 let currentPage = 1;
+let categories = "";
 
 async function fetchNews(page) {
   try {
     document.getElementById("news").innerHTML = "<h3>Loading news . . .</h3>";    
 
     const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    let categories = Array.from(checkedBoxes)
-      .map((checkbox) => checkbox.value)
-      .join(",");
+    const newCategories = Array.from(checkedBoxes).map((checkbox) => checkbox.value).join(",");
+
+    if (categories !== newCategories) {
+      currentPage = 1;
+    }
+
+    categories = newCategories;
 
     if (!categories) {
       categories = "general"; // default category on load
@@ -29,8 +34,8 @@ async function fetchNews(page) {
       newsCards += `
         <div class="card">
           <img src="${imageUrl}" alt="${news[i].title}">
-          <h3>Title: ${news[i].title}</h3>
-          <div>News: ${news[i].description}</div>
+          <h3>${news[i].title}</h3>
+          <div>${news[i].description}</div>
         </div>
       `;
     }
