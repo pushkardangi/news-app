@@ -1,12 +1,12 @@
+const api_key = "ec3821b74292bd8e3c8e45c4a92aa7e5";
+let countries = "in";
+let languages = "en";
+let limit = 12;
+let currentPage = 1;
 
-async function fetchNews() {
+async function fetchNews(page) {
   try {
-    document.getElementById("news").innerHTML = "<h3>Loading news . . .</h3>";
-
-    const api_key = "ec3821b74292bd8e3c8e45c4a92aa7e5";
-    const countries = "in";
-    const languages = "en";
-    const limit = 12;
+    document.getElementById("news").innerHTML = "<h3>Loading news . . .</h3>";    
 
     const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
     let categories = Array.from(checkedBoxes)
@@ -17,7 +17,7 @@ async function fetchNews() {
       categories = "general"; // default category on load
     }
 
-    const url = `http://api.mediastack.com/v1/news?access_key=${api_key}&countries=${countries}&languages=${languages}&limit=${limit}&categories=${categories}`;
+    const url = `http://api.mediastack.com/v1/news?access_key=${api_key}&countries=${countries}&languages=${languages}&limit=${limit}&categories=${categories}&offset=${(page - 1) * limit}`;
 
     const response = await fetch(url);
     const result = await response.json();
@@ -36,9 +36,35 @@ async function fetchNews() {
     }
 
     document.getElementById("news").innerHTML = newsCards;
+    updatePagination();
+
   } catch (error) {
     alert("Error: " + error.message);
     console.log(error);
+  }
+}
+
+function updatePagination() {
+  const pageButtons = document.querySelectorAll(".page-btn");
+  
+  pageButtons.forEach((btn, index) => {
+    let pageNum = index + 1;
+    btn.classList.toggle("active", pageNum === currentPage);
+  });
+
+  document.getElementById("prev").disabled = currentPage === 1;
+  document.getElementById("next").disabled = currentPage === 6;
+}
+
+function goToPage(page) {
+  currentPage = page;
+  fetchNews(currentPage);
+}
+
+function changePage(direction) {
+  if ((direction === -1 && currentPage > 1) || (direction === 1 && currentPage < 6)) {
+    currentPage += direction;
+    fetchNews(currentPage);
   }
 }
 
