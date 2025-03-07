@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | News App</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+  <div class="container flex flex-center">
+
+    <div class="form flex flex-col gap-1">
+      <h1>Login to your account</h1>
+
+      <div class="flex flex-row gap-1">
+        <div>Don't have an account?</div>
+        <a href="register.html">Register now</a>
+      </div>
+
+      <form id="myForm" class="flex flex-col gap-2">
+
+        <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+
+        <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
+        
+        <button type="submit">Submit</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <script src="login.js"></script>
+  
+</body>
+</html>

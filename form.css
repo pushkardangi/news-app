@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.p-6 {
+  padding: 6px;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgb(202, 202, 202);
+  width: 100vw;
+  height: 100vh;
+}
+
+.form {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+input {
+  padding: 8px 16px;
+  border: 1px solid skyblue;
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid rgb(4, 116, 160);
+  box-shadow: 0 0 5px rgb(58, 126, 205);
+}
+
+button {
+  padding: 8px;
+  border: 1px solid rgb(2, 168, 2);
+  border-radius: 4px;
+  color: white;
+  font-size: 0.9rem;
+  background-color: rgb(2, 168, 2);
+}
+
+button:hover {
+  background-color: green;
+}
+
+#generate-password-btn {
+  background-color: yellowgreen;
+  border: 1px solid yellowgreen;
+}
+
+#generate-password-btn:hover {
+  background-color: rgb(130, 180, 30);
+}
+
+.full-w {
+  width: 100%;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an account | News App</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+  <div class="container flex flex-center">
+
+    <div class="form flex flex-col gap-1">
+      <h1>Create an account</h1>
+
+      <div class="flex flex-row gap-1">
+        <div>Already have an account?</div>
+        <a href="login.html">Log in</a>
+      </div>
+
+      <form class="flex flex-col gap-2">
+
+        <div class="flex flex-row gap-1">
+          <input type="text" id="firstname" placeholder="First Name" autocomplete="given-name" required>
+          <input type="text" id="lastname" placeholder="Last Name" autocomplete="family-name" required>
+        </div>
+
+        <input type="number" id="mobile" placeholder="Mobile Number" required >
+        
+        <input type="email" id="email"  placeholder="Email" autocomplete="email" required>
+        
+        <div class="flex flex-row gap-1">
+        <input type="text" id="password" placeholder="Password" autocomplete="new-password" required>
+        <button type="button" id="generate-password-btn" onclick={generateRandomPassword}> Generate random password</button>
+        </div>
+        <button type="submit">Submit</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <script src="register.js"></script>
+  
+</body>
+</html>
